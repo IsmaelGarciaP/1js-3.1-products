@@ -8,6 +8,7 @@ const myStore = new Store(1, 'Almacén de ACME')
 // Añadimos los objetos
 try {
     var catInformatica = myStore.addCategory('Informática')
+    var catInformatica1 = myStore.addCategory('Informática1')
 } catch(err) {
     console.error(err)
 }
@@ -38,9 +39,10 @@ try {
 } catch(err) {
     console.error(err)
 }
-
 // Eliminamos el producto
 try {
+    myStore.delCategory(2)
+    myStore.delCategory(1)
     myStore.delProduct(usb.id)
 } catch(err) {
     console.error(err)
