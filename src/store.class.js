@@ -1,5 +1,6 @@
 const Category = require('./category.class');
 const Product = require('./product.class');
+const initData = require('../datosIni.json');
 
 // Aquí la clase Store
 class Store{
@@ -9,6 +10,17 @@ class Store{
         this.products = [];
         this.categories = [];
     }
+
+
+    loadData(){
+        initData.categories.forEach((catgoriData)=>{
+            this.categories.push(new Category(catgoriData.id, catgoriData.name, catgoriData.description));
+        });   
+        initData.products.forEach((productData) => {
+            this.products.push(productData.id, productData.name, productData.description, productData.price, productData.units);
+        });
+    }
+
     getCategoryById(id){
         let cat = this.categories.find(element => element.id == id);
         if(!cat){
