@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
   document.getElementById('del-cat').addEventListener('submit', (event) => {
     event.preventDefault()
 
-    myController.deleteProductFromStore(document.getElementById('delcat-id').value)      
+    myController.deleteCategoriaFromStore(document.getElementById('delcat-id').value)      
   })
 
 })

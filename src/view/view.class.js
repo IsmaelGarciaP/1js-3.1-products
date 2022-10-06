@@ -39,7 +39,7 @@ class View {
     delCat(id){
         let select = document.getElementById("select");
         let option = document.getElementById(id);
-        select.replaceChild(option);
+        select.removeChild(option);
     }
 
     pintarTotalImport(total){

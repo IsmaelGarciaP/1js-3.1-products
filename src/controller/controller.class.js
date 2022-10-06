@@ -18,16 +18,16 @@ class Controller{
             this.view.pintarProducto(product);
             this.view.pintarTotalImport(this.store.totalImport())
         }catch(e){
-            this.view.errorMessage(e);
+            setTimeout(this.view.errorMessage(e), 2);
         }
     }
 
     deleteProductFromStore(id){
         try{
             const del = this.store.delProduct(id);
-            this.view.delPro(id);
+            this.view.delPro(id)
         }catch(e){
-            this.view.errorMessage(e);
+            setTimeout(this.view.errorMessage(e), 2);
         }
     }
 
@@ -36,7 +36,7 @@ class Controller{
             const categoria = this.store.addCategory(cat.name, cat.description);
             this.view.rellenarSelect(categoria);
         }catch(e){
-            this.view.errorMessage(e);
+            setTimeout(this.view.errorMessage(e), 2000);
         }
     }
 
@@ -45,7 +45,7 @@ class Controller{
             const del = this.store.delCategory(id);
             this.view.delCat(id);
         }catch(e){
-            this.view.errorMessage(e);
+            setTimeout(this.view.errorMessage(e), 2);
         }
     }
 
