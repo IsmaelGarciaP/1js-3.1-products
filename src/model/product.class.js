@@ -9,11 +9,20 @@ class Product{
     }
 
     productImport(){
-        return this.price * this.units;
+        let total = this.price * this.units
+        return total;
     }
     
     toString(){
         return this.name + ": "+ this.units + " uds. x " + this.price + " €/u = " + this.productImport() + " €";
+    }
+
+    addUnid(){
+        this.units++;
+    }
+
+    delUnid(){
+        this.units--;
     }
 }
 module.exports = Product

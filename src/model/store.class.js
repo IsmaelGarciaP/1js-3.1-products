@@ -78,14 +78,14 @@ class Store{
         if(payload.units && isNaN(payload.units)){
             throw "No se puede añadir";
         }
-        if(payload.units < 0){
+        if(payload.units < 0){1
             throw "No se puede añadir";
         }
         if(payload.units && !Number.isInteger(payload.units)){
             throw "No se puede añadir";
         }
         let maxid = this.products.reduce((max, id) => id.id > max ? max = id.id : max, 0);
-        let prod = new Product((maxid+1), payload.name, payload.category, payload.price, payload.units);
+        let prod = new Product((parseInt(maxid)+1), payload.name, payload.category, parseInt(payload.price), payload.units);
         this.products.push(prod);
         return prod;
     }
@@ -112,11 +112,8 @@ class Store{
     }
 
     totalImport(){
-        let i = 0;
-        this.products.forEach(element => {
-            i =+ element.totalImport;
-        });
-        return i;
+        let total = this.products.reduce((total,pro)  => total = total + parseInt(pro.productImport()), 0)
+        return total;
     }
 
     orderByUnitsDesc(){
@@ -129,6 +126,12 @@ class Store{
 
     underStock(units){
         return this.products.filter( pro => pro.units < units);
+    }
+
+    modificarProduct(product){
+        let index = this.products.findIndex(pro => pro.id == product.id);
+        this.products[index] = new Product(product.id, product.name, product.category, product.price, product.units);
+        return this.products[index];
     }
 
     toString(){

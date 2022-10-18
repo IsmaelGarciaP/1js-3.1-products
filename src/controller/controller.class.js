@@ -15,7 +15,17 @@ class Controller{
     addProductToStore(payload){
         try{
             const product = this.store.addProduct(payload);
-            this.view.pintarProducto(product);
+            this.view.pintarProducto(product, this.deleteProductFromStore.bind(this));
+            this.view.pintarTotalImport(this.store.totalImport())
+        }catch(e){
+            setTimeout(this.view.errorMessage(e), 2);
+        }
+    }
+
+    modificarProducto(payload){
+        try{
+            const product = this.store.modificarProduct(payload);
+            this.view.modificarTabla(product);
             this.view.pintarTotalImport(this.store.totalImport())
         }catch(e){
             setTimeout(this.view.errorMessage(e), 2);
@@ -25,7 +35,7 @@ class Controller{
     deleteProductFromStore(id){
         try{
             const del = this.store.delProduct(id);
-            this.view.delPro(id)
+            this.view.delPro(id);
         }catch(e){
             setTimeout(this.view.errorMessage(e), 2);
         }
