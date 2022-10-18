@@ -5,7 +5,7 @@ class View {
         
     }
 
-    pintarProducto(producto, callback){
+    pintarProducto(producto, callback, callback1){
         let table =document.getElementById("cuerpoTabla");
         let tr = document.createElement('tr');
         tr.id="tr"+producto.id;
@@ -14,7 +14,7 @@ class View {
         <td id="category${producto.id}">${producto.category}</td>
         <td id="unid${producto.id}">${producto.units}</td>
         <td id="price${producto.id}">${producto.price}€/u</td>
-        <td>${producto.productImport()} €</td>
+        <td id="importe${producto.id}">${producto.productImport()} €</td>
         <td>
         <button class="btn-add-unit${producto.id}">
         <span class="material-icons">arrow_drop_up</span>
@@ -39,6 +39,8 @@ class View {
             producto.addUnid();
             document.getElementById("unid" + producto.id).textContent = producto.units;
             tr.querySelector(".btn-del-unit" + producto.id ).removeAttribute("disabled");
+            this.pintarTotalImport(callback1()); 
+            document.getElementById("importe" + producto.id).innerText = producto.productImport()
         });
 
         tr.querySelector(".btn-del-unit" + producto.id ).addEventListener("click", ()=>{
@@ -51,10 +53,13 @@ class View {
                     tr.querySelector(".btn-del-unit" + producto.id ).setAttribute("disabled", "true");
                 }
             }
+            this.pintarTotalImport(callback1());
+            document.getElementById("importe" + producto.id).innerText = producto.productImport()
         });
 
         tr.querySelector(".btn-edit" + producto.id ).addEventListener("click", ()=>{
             document.getElementById('div-new-prod').classList.remove('ocultar');
+            let id = producto.id
            this.rellenarForm(producto);
         });
         
@@ -67,6 +72,7 @@ class View {
         document.getElementById("category" + product.id).innerText = product.category
         document.getElementById("unid" + product.id).innerText = product.units
         document.getElementById("price" + product.id).innerText = product.price
+        document.getElementById("importe" + product.id).innerText = product.productImport()
     }
 
     rellenarSelect(cat){

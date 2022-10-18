@@ -15,7 +15,7 @@ class Controller{
     addProductToStore(payload){
         try{
             const product = this.store.addProduct(payload);
-            this.view.pintarProducto(product, this.deleteProductFromStore.bind(this));
+            this.view.pintarProducto(product, this.deleteProductFromStore.bind(this), this.store.totalImport.bind(this.store));
             this.view.pintarTotalImport(this.store.totalImport())
         }catch(e){
             setTimeout(this.view.errorMessage(e), 2);
@@ -25,7 +25,7 @@ class Controller{
     modificarProducto(payload){
         try{
             const product = this.store.modificarProduct(payload);
-            this.view.modificarTabla(product);
+            this.view.modificarTabla(product,);
             this.view.pintarTotalImport(this.store.totalImport())
         }catch(e){
             setTimeout(this.view.errorMessage(e), 2);
