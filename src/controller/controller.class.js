@@ -10,6 +10,7 @@ class Controller{
 
     init(){
         //loadData();
+        this.setListeners();
     }
 
     addProductToStore(payload){
@@ -57,6 +58,39 @@ class Controller{
         }catch(e){
             setTimeout(this.view.errorMessage(e), 2);
         }
+    }
+
+    compNombrePro(name,prodName){
+        try{
+            this.store.getProductByName(name);
+            prodName.setCustomValidity("Nombre repetido");
+        }catch{
+            prodName.nextElementSibling.textContent = prodName.validationMessage;
+            prodName.setCustomValidity("");
+        }
+        prodName.nextElementSibling.textContent = prodName.validationMessage;
+    }
+
+    setListeners(){
+        const prodName = document.getElementById("newprod-name");
+        prodName.addEventListener("blur", () => this.compNombrePro(prodName.value,prodName));
+
+        const select = document.getElementById("select");
+        select.addEventListener("blur", () => select.nextElementSibling.textContent = select.validationMessage);
+
+        const units = document.getElementById("newprod-units");
+        units.addEventListener("blur", () => units.nextElementSibling.textContent = units.validationMessage);
+
+        const price = document.getElementById("newprod-price");
+        price.addEventListener("blur", () => price.nextElementSibling.textContent = price.validationMessage);
+
+        document.getElementById('new-prod').addEventListener('submit', (event) => {
+            this.compNombrePro(prodName.value,prodName);
+            select.nextElementSibling.textContent = select.validationMessage
+            units.nextElementSibling.textContent = units.validationMessage
+            price.nextElementSibling.textContent = price.validationMessage
+            
+        })
     }
 
 }

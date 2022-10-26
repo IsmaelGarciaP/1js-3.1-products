@@ -42,6 +42,14 @@ class Store{
         return pro;
     }
 
+    getProductByName(name){
+        let pro = this.products.find(element => element.name.toLowerCase() == name.toLowerCase());
+        if(pro == null){
+            throw "No existe categoria";
+        }
+        return pro;
+    }
+
     getProductsByCategory(id){
         let pro = this.products.filter(element => element.category == id);
         return pro;

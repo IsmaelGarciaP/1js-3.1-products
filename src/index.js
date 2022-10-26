@@ -9,18 +9,30 @@ myController.init()
 // A continuación crearemos una función manejadora para cada formulario
 window.addEventListener('load', () => {
 
-
+  let form = document.getElementsByTagName('form')[0]
   // función manejadora del formulario 'new-prod'
   document.getElementById('new-prod').addEventListener('submit', (event) => {
-    event.preventDefault()
+    event.preventDefault();
+    const id = document.getElementById("id-pro").value;
+    let nameInput = document.getElementById('newprod-name');
+    const name = nameInput.value
+    let categoryInput = document.getElementById('select');
+    const category = parseInt(categoryInput.value);
+    const units = parseInt(document.getElementById('newprod-units').value);
+    let priceInput = document.getElementById('newprod-price') 
+    const price = priceInput.value 
+
+
+    if(!form.checkValidity()) {
+      errorName.textContent = nameInput.validationMessage;
+      errorCat.textContent = categoryInput.validationMessage;
+      errorPrice.textContent = priceInput.validationMessage;
+      return;
+    }
 
     // Aquí el código para obtener los datos del formulario
-    const id = document.getElementById("id-pro").value;
-    const name = document.getElementById('newprod-name').value
-    const category = parseInt(document.getElementById('select').value);
-    const units = parseInt(document.getElementById('newprod-units').value);
-    const price = document.getElementById('newprod-price').value 
-  
+
+    
     if(!id){
       myController.addProductToStore({ name, category, units, price }) 
       document.getElementById('titulo').innerText = "Listado de productos";
@@ -39,6 +51,7 @@ window.addEventListener('load', () => {
       document.getElementById("add-prduct").innerText = "Añadir";
       document.getElementById('div-new-prod').classList.add('ocultar');
     }
+  
   })
 
   document.getElementById('new-cat').addEventListener('submit', (event) => {
