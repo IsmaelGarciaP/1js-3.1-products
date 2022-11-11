@@ -1,5 +1,6 @@
 'use strict'
 const Product = require('../model/product.class');
+
 class View {
     constructor(){
         
@@ -97,7 +98,7 @@ class View {
 
     delPro(id){
         let table = document.getElementById("cuerpoTabla");
-        let tr =document.getElementById("tr"+id);
+        let tr = document.getElementById("tr"+id);
         table.removeChild(tr);
     }
 

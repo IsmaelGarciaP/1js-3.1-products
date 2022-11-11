@@ -1,0 +1,158 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Mobiliario",
+      "description": "Muebles de oficina"
+    }
+  ],
+  "products": [
+    {
+      "id": 2,
+      "name": "Silla de ordenador1",
+      "category": 1,
+      "units": 10,
+      "price": "145.95"
+    },
+    {
+      "id": 3,
+      "name": "Mesa de impresora0",
+      "category": 1,
+      "units": 10,
+      "price": "45.95"
+    },
+    {
+      "id": 1,
+      "name": "Mesa de ordenador",
+      "category": 1,
+      "price": 125.95,
+      "units": 3
+    },
+    {
+      "name": "aasdfsdsdfg",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 4
+    },
+    {
+      "name": "aasdfsdsdfgwdfgw",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 5
+    },
+    {
+      "name": "aasdfsdsdfgwdfg",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 6
+    },
+    {
+      "name": "aasdfsdsdfgwdfg",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 7
+    },
+    {
+      "name": "aasdfsdsdfgwdf",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 8
+    },
+    {
+      "name": "aasdfsdsdfgwd",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 9
+    },
+    {
+      "name": "aasdfsdsdfgw",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 10
+    },
+    {
+      "name": "aasdfsdsdfgw1",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 11
+    },
+    {
+      "name": "hola jhsdg8",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 13
+    },
+    {
+      "name": "hola jhsdg9",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 14
+    },
+    {
+      "name": "hola jhsdg21",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 15
+    },
+    {
+      "name": "hola jhsdg22",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 16
+    },
+    {
+      "name": "hola jhsdg23",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 17
+    },
+    {
+      "name": "hola jhsdg24",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 18
+    },
+    {
+      "name": "hola jhsdg25",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 19
+    },
+    {
+      "name": "hola jhsdg26",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 20
+    },
+    {
+      "name": "hola jhsdg26",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 21
+    },
+    {
+      "name": "hola jhsdg27",
+      "category": 1,
+      "units": 1,
+      "price": "1",
+      "id": 22
+    }
+  ]
+}

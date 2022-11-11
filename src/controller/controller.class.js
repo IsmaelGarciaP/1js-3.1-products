@@ -2,20 +2,25 @@
 const Store = require('../model/store.class');
 const View = require('../view/view.class');
 
+
 class Controller{
     constructor(){
         this.store = new Store(1, "Store");
         this.view = new View();
     }
 
-    init(){
+    async init(){
         //loadData();
         this.setListeners();
+        await this.store.loadData();
+        this.store.categories.forEach((category) => this.view.rellenarSelect(category))
+        this.store.products.forEach((product) => this.view.pintarProducto(product, this.deleteProductFromStore.bind(this), this.store.totalImport.bind(this.store)))
+        this.view.pintarTotalImport(this.store.totalImport())
     }
 
-    addProductToStore(payload){
+    async addProductToStore(payload){
         try{
-            const product = this.store.addProduct(payload);
+            const product = await this.store.addProduct(payload);
             this.view.pintarProducto(product, this.deleteProductFromStore.bind(this), this.store.totalImport.bind(this.store));
             this.view.pintarTotalImport(this.store.totalImport())
         }catch(e){
@@ -23,9 +28,10 @@ class Controller{
         }
     }
 
-    modificarProducto(payload){
+
+    async modificarProducto(payload){
         try{
-            const product = this.store.modificarProduct(payload);
+            const product = await this.store.modificarProduct(payload);
             this.view.modificarTabla(product,);
             this.view.pintarTotalImport(this.store.totalImport())
         }catch(e){
@@ -33,14 +39,16 @@ class Controller{
         }
     }
 
-    deleteProductFromStore(id){
+    async deleteProductFromStore(id){
         try{
-            const del = this.store.delProduct(id);
-            this.view.delPro(id);
+                console.log(id);
+                const product = await this.store.delProduct(id);
+                this.view.delPro(id);
         }catch(e){
             setTimeout(this.view.errorMessage(e), 2);
         }
     }
+    
 
     addCategoriaToStore(cat){
         try{
