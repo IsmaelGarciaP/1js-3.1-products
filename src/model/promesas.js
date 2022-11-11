@@ -48,8 +48,23 @@ async function actualizar(datos) {
     return myData;
   }
 
+
+  async function addCategory(datos) {
+    const response = await fetch(SERVER + '/products', {
+        method: 'POST', // o 'PUT', 'GET', 'DELETE'
+        body: JSON.stringify(datos), // los datos que enviamos al servidor en el 'send'
+        headers:{
+          'Content-Type': 'application/json'
+        }});
+    if (!response.ok) {
+      throw `Error ${response.status} de la BBDD: ${response.statusText}`
+    }
+    const myData = await response.json();
+    return myData;
+  }
 module.exports = {
     addProductoBD,
     deleteProduct,
-    actualizar
+    actualizar,
+    addCategory
 }

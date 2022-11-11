@@ -68,15 +68,16 @@ class Store{
         return pro;
     }
 
-    addCategory(nombre, description){
+    async addCategory(nombre, description){
         if(!nombre){
             throw "No se puede añadir";
         }
         try{
             this.getCategoryByName(nombre);
         }catch {
-            let maxid = this.categories.reduce((max, categoria) => categoria.id > max ? max = categoria.id : max,0);
-            let cat = new Category(maxid+1, nombre, description);
+            const cat1 = await Promesas.addCategory({nombre, description})
+            //let maxid = this.categories.reduce((max, categoria) => categoria.id > max ? max = categoria.id : max,0);
+            let cat = new Category(cat1.id, cat1.nombre, cat1.description);
             this.categories.push(cat);
             return cat;
         }
